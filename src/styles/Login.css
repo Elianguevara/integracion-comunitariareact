@@ -1,0 +1,143 @@
+/* src/styles/Login.css */
+
+/* Importa las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Fondo de pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+}
+
+/* Centrar el contenedor */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Tarjeta */
+.login-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  width: 360px;
+}
+
+/* CABECERA DE LA APP */
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1abc9c;
+}
+
+.login-slogan {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0.25rem 0 1rem;
+  color: #eee;
+}
+
+/* Título del formulario */
+.login-card h2 {
+  margin: 0 0 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Grupo de input */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Label superior */
+.input-group label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 14px;
+  color: #1abc9c;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Input estilo línea inferior */
+.input-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #bbb;
+  background: transparent;
+  padding: 8px 0;
+  color: #eee;
+  font-size: 16px;
+  outline: none;
+  transition: border-color .2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.input-group input:focus {
+  border-bottom-color: #1abc9c;
+}
+
+/* Placeholder más suave */
+.input-group input::placeholder {
+  color: #888;
+}
+
+/* Botón */
+.login-button {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5dade2;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color .3s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login-button:hover {
+  background-color: #417ab3;
+}
+
+/* Mensaje de error */
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Enlace para cambiar a registro */
+.switch-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #eee;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+.switch-link a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+.switch-link a:hover {
+  text-decoration: underline;
+}
