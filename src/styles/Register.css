@@ -1,0 +1,145 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    --card-bg: rgba(0,0,0,0.6);
+    --accent: #1abc9c;
+    --text: #eee;
+    --muted: #888;
+    --border: #bbb;
+    --btn: #5dade2;
+    --btn-hover: #417ab3;
+    --error: #e74c3c;
+  }
+  
+  .register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg-gradient);
+  }
+  
+  .register-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+  
+  .register-card h2 {
+    text-align: center;
+    color: var(--text);
+    margin: 0 0 30px;
+    font-size: 28px;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  
+  .input-group > label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: var(--accent);
+    font-size: 14px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    padding: 8px 0;
+    color: var(--text);
+    font-size: 16px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .input-group input:focus {
+    border-bottom-color: var(--accent);
+  }
+  
+  .input-group input::placeholder {
+    color: var(--muted);
+  }
+  
+  /* Estilos para el grupo de radios */
+  .radio-input-group {
+    margin-bottom: 25px;
+    /* anula el position:relative heredado si hace falta */
+    position: static;
+  }
+  
+  .radio-group-label {
+    display: block;
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column; /* vertical; o 'row' si prefieres horizontal */
+    gap: 0.5rem;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 6px;
+    accent-color: var(--accent);
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 12px;
+    background: var(--btn);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .3s;
+    margin-top: 10px;
+  }
+  
+  .register-button:hover {
+    background: var(--btn-hover);
+  }
+  
+  .register-error {
+    color: var(--error);
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .register-switch {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text);
+    font-size: 14px;
+  }
+  
+  .register-switch a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .register-switch a:hover {
+    text-decoration: underline;
+  }
+  
