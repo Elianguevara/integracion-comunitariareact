@@ -76,7 +76,8 @@ html, body {
 }
 
 /* Input estilo línea inferior */
-.input-group input {
+.input-group input,
+.input-group select {
   width: 100%;
   border: none;
   border-bottom: 1px solid #bbb;
@@ -89,7 +90,8 @@ html, body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.input-group input:focus {
+.input-group input:focus,
+.input-group select:focus {
   border-bottom-color: #1abc9c;
 }
 
@@ -134,10 +136,12 @@ html, body {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
 }
+
 .switch-link a {
   color: #1abc9c;
   text-decoration: none;
 }
+
 .switch-link a:hover {
   text-decoration: underline;
 }
