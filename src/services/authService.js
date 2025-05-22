@@ -1,29 +1,35 @@
+// authService.js
+
 import axios from 'axios';
 
+// Crea una instancia personalizada de axios
 const API = axios.create({
-  // Asegúrate que esta URL base apunte a tu backend correctamente
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/auth', // Ajusta si tu base es /auth o no
-  headers: { 'Content-Type': 'application/json' }
+  // URL base del backend para las solicitudes HTTP
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/auth',
+  headers: { 'Content-Type': 'application/json' } // Especifica que enviamos y recibimos JSON
 });
 
-// Para incluir token en cada petición tras login
+// Función que permite configurar o eliminar automáticamente el token JWT 
+// en cada solicitud HTTP después del login/logout
 export function setAuthToken(token) {
   if (token) {
+    // Si existe un token, lo establece en el encabezado de autorización
     API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
+    // Si no existe token (logout), elimina el encabezado de autorización
     delete API.defaults.headers.common['Authorization'];
   }
 }
 
-// --- CORRECCIÓN AQUÍ ---
-// Ahora la función acepta un solo argumento 'userData' (que será tu objeto formData)
+// Función que realiza la petición HTTP al backend para registrar un nuevo usuario
+// Recibe un solo parámetro userData (objeto con datos del usuario: name, lastName, email, password, roleType)
 export const register = (userData) =>
-  // Envía el objeto 'userData' completo al endpoint /auth/register
   API.post('/register', userData);
-// --- FIN CORRECCIÓN ---
 
+// Función que realiza la petición HTTP al backend para iniciar sesión
+// Recibe email y password directamente
 export const login = (email, password) =>
   API.post('/login', { email, password });
 
-// Añade otras exportaciones si tienes más llamadas API
-// export default API; // Podrías exportar API si necesitas usarlo directamente en otro lado
+// Puedes exportar directamente API si necesitas usarla para otros endpoints en el futuro
+// export default API;
