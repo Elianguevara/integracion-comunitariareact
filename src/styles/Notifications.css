@@ -1,0 +1,145 @@
+/* src/styles/Notifications.css */
+
+.notifications-container {
+  display: flex;
+  align-items: flex-start; /* Alinea arriba para listas largas */
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 50px; /* Espacio superior */
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+}
+
+.notifications-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 600px;
+  color: #eee;
+}
+
+.notifications-card h2 {
+  color: #1abc9c;
+  text-align: center;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 60vh; /* Altura máxima para la lista */
+  overflow-y: auto; /* Scroll si la lista es muy larga */
+}
+
+.notification-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #5dade2;
+  transition: background-color 0.3s;
+}
+
+.notification-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.notification-item.viewed {
+  border-left-color: #555;
+  opacity: 0.7;
+}
+
+.notification-item p {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.notification-item small {
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+.status-badge {
+    display: inline-block;
+    background-color: #888;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-left: 10px;
+}
+
+.no-notifications {
+  text-align: center;
+  color: #bbb;
+  padding: 40px 0;
+}
+
+.notifications-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.action-link {
+  color: #5dade2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.action-link:hover {
+  color: #1abc9c;
+}
+
+/* Mensajes de carga y error */
+.loading-message, .error-message {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 50px;
+}
+/* ... todos los estilos anteriores ... */
+
+.notification-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-button.view {
+  border-color: #27ae60;
+  color: #27ae60;
+}
+
+.action-button.view:hover {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.action-button.delete {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.action-button.delete:hover {
+  background-color: #c0392b;
+  color: #fff;
+}

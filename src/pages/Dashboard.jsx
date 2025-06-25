@@ -1,40 +1,48 @@
 // src/pages/Dashboard.jsx
 
-import React from 'react'
-import { useNavigate } from 'react-router-dom' // Hook para redirigir al usuario entre rutas
-import { useAuth } from '../context/AuthContext' // Usa el hook personalizado para acceder al contexto de autenticación
-import '../styles/Login.css' // Importa estilos reutilizables (probablemente usados también en la pantalla de Login)
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+// Usaremos los estilos de notificaciones para los botones extra
+import '../styles/Notifications.css'; 
 
-// Componente funcional que representa la vista del Dashboard
 export default function Dashboard() {
-  
-  const navigate = useNavigate() // Obtiene la función para cambiar de ruta
-  const { logoutUser } = useAuth() // Extrae la función logout del contexto de autenticación
+  const navigate = useNavigate();
+  const { logoutUser } = useAuth();
 
-  // Función que maneja el cierre de sesión del usuario
   const handleLogout = () => {
-    logoutUser()            // Llama al contexto para eliminar el token del usuario y cerrar sesión
-    navigate('/login')      // Redirige inmediatamente al usuario a la página de login
-  }
+    logoutUser();
+    navigate('/login');
+  };
 
-  // Renderiza la interfaz del Dashboard
   return (
-    <div className="login-container"> {/* Reutiliza estilos del contenedor para mantener coherencia visual */}
-      <div className="login-card"> {/* Usa una tarjeta para un diseño limpio y centrado */}
+    <div className="notifications-container"> {/* Usamos el contenedor para mantener el fondo y centrado */}
+      <div className="notifications-card" style={{ maxWidth: '450px' }}> {/* Tarjeta un poco más pequeña */}
         
-        <h2>Dashboard</h2> {/* Título principal del dashboard */}
+        <h2>Dashboard</h2>
         
-        <p style={{ color: '#eee', textAlign: 'center' }}>
-          ¡Bienvenido al dashboard! {/* Mensaje de bienvenida */}
+        <p style={{ color: '#eee', textAlign: 'center', marginBottom: '30px' }}>
+          ¡Bienvenido al dashboard!
         </p>
+
+        {/* Enlaces a las nuevas vistas */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '30px' }}>
+           <Link to="/notifications" className="login-button" style={{ textDecoration: 'none' }}>
+              Ver Notificaciones Pendientes
+           </Link>
+           <Link to="/notifications/history" className="login-button" style={{ textDecoration: 'none', backgroundColor: '#34495e' }}>
+              Historial de Notificaciones
+           </Link>
+        </div>
         
         <button
-          onClick={handleLogout} // Botón que ejecuta la función de cierre de sesión
-          className="login-button" // Reutiliza estilo del botón para consistencia con la interfaz de login
+          onClick={handleLogout}
+          className="login-button"
+          style={{ backgroundColor: '#c0392b' }} // Color diferente para logout
         >
           Cerrar sesión
         </button>
       </div>
     </div>
-  )
+  );
 }

@@ -1,38 +1,31 @@
-import React, { createContext, useState, useContext, useEffect } from 'react'
-import { setAuthToken } from '../services/authService' // Importa una función para configurar el token en tus servicios HTTP (por ejemplo, Axios)
+// src/context/AuthContext.jsx
 
-// Crear un contexto llamado AuthContext para compartir información de autenticación en toda la app
-const AuthContext = createContext()
+import React, { createContext, useState, useContext, useEffect } from 'react';
+// Asegúrate de que importa la función desde './services/api'
+import { setAuthToken } from '../services/api'; 
 
-// Este es el componente proveedor que envolverá a la aplicacion o partes específicas de ella
+const AuthContext = createContext();
+
 export const AuthProvider = ({ children }) => {
-  // Estado local para almacenar el token de autenticación.
-  // Inicializa desde localStorage para mantener la sesión tras recargar la página
-  const [token, setToken] = useState(localStorage.getItem('token') || null)
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
 
-  // useEffect para reaccionar cada vez que cambia el token:
   useEffect(() => {
-    setAuthToken(token) // Establece el token actual en tus peticiones HTTP (por ejemplo, configura Axios)
+    setAuthToken(token); 
     if (token) {
-      localStorage.setItem('token', token) // Guarda el token en localStorage para persistir la sesión
+      localStorage.setItem('token', token);
     } else {
-      localStorage.removeItem('token') // Elimina el token de localStorage si ya no existe (logout)
+      localStorage.removeItem('token');
     }
-  }, [token]) // Este efecto se ejecuta siempre que cambia el token
+  }, [token]);
 
-  // Función para iniciar sesión del usuario, actualizando el token
-  const loginUser = (newToken) => setToken(newToken)
+  const loginUser = (newToken) => setToken(newToken);
+  const logoutUser = () => setToken(null);
 
-  // Función para cerrar sesión, eliminando el token
-  const logoutUser = () => setToken(null)
-
-  // Proveer estas funciones y el token actual a los componentes hijos mediante Context API
   return (
     <AuthContext.Provider value={{ token, loginUser, logoutUser }}>
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
-// Hook personalizado para simplificar el uso del contexto AuthContext en componentes funcionales
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext);
